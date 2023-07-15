@@ -1,0 +1,50 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+
+
+main {
+    font-family: 'Vazirmatn', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    background: linear-gradient(to right top, #c444ffc3, #79edff);
+    justify-content: center;
+    padding: 8rem 0 15rem 0;
+    @include respond(phone){
+      padding: 1rem 0 0 0;
+   }
+}
+.app_box{
+    height: fit-content;
+    min-height: 70vh;
+    background-color: white;
+    padding: 5rem 3rem;
+    z-index: 0;
+    overflow: hidden;
+    border:1px solid #c444ffc3; 
+    border-radius: 2rem;
+    @include respond(phone){
+      width: 100vw;
+      min-height: 94vh;
+      border: none;
+   }
+}
+.todo-list_box,.finished-list_box{
+  width: 50vw;
+  @include respond(tab-land){
+    width: 70vw;
+  } 
+  @include respond(tab-port){
+    width: 80vw;
+  } 
+  @include respond(phone){
+    width: 100%;
+ }
+}
+

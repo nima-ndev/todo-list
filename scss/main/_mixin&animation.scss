@@ -1,0 +1,44 @@
+@mixin respond($break){
+
+    @if $break==tab-land{  //1200 px
+        @media (max-width: 75em){@content};
+    }
+    @if $break==tab-port{  //800px
+        @media (max-width: 50em){@content};
+    }
+    @if $break==phone{  //500px
+        @media (max-width: 30em){@content};
+    }
+}
+@keyframes delete{
+    60%{
+        transform: translateX(-1rem);
+    }
+    100%{
+        transform: translateX(130%);
+    }
+}
+@keyframes input{
+    0%{
+        transform: translateX(-40%);
+    }
+    100%{
+        transform: translateX(0);
+        border-image: linear-gradient(to left , rgba(234, 234, 234, 0), rgba(234, 234, 234, 0),rgba(137, 43, 226, 0.685), rgba(234, 234, 234, 0),rgba(234, 234, 234, 0)) 50;
+        border-width: 1px;
+        border-style: solid;
+        border-top: none;
+    }
+}
+// @keyframes span{
+//     0%{
+//         transform: translateX(100%);
+//         border-image: linear-gradient(to left , rgba(234, 234, 234, 0), rgba(234, 234, 234, 0),rgba(69, 69, 69, 0.623), rgba(234, 234, 234, 0),rgba(234, 234, 234, 0)) 50;
+//         border-width: 5px;
+//         border-style: solid;
+//         border-top: none;
+//     }
+//     100%{
+//         transform: translateX(0);
+//     }
+// }

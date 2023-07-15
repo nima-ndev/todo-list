@@ -1,0 +1,272 @@
+@keyframes delete {
+  60% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    transform: translateX(130%);
+  }
+}
+@keyframes input {
+  0% {
+    transform: translateX(-40%);
+  }
+  100% {
+    transform: translateX(0);
+    border-image: linear-gradient(to left, rgba(234, 234, 234, 0), rgba(234, 234, 234, 0), rgba(137, 43, 226, 0.685), rgba(234, 234, 234, 0), rgba(234, 234, 234, 0)) 50;
+    border-width: 1px;
+    border-style: solid;
+    border-top: none;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+main {
+  font-family: "Vazirmatn", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(to right top, rgba(196, 68, 255, 0.7647058824), #79edff);
+  justify-content: center;
+  padding: 8rem 0 15rem 0;
+}
+@media (max-width: 30em) {
+  main {
+    padding: 1rem 0 0 0;
+  }
+}
+
+.app_box {
+  height: fit-content;
+  min-height: 70vh;
+  background-color: white;
+  padding: 5rem 3rem;
+  z-index: 0;
+  overflow: hidden;
+  border: 1px solid rgba(196, 68, 255, 0.7647058824);
+  border-radius: 2rem;
+}
+@media (max-width: 30em) {
+  .app_box {
+    width: 100vw;
+    min-height: 94vh;
+    border: none;
+  }
+}
+
+.todo-list_box, .finished-list_box {
+  width: 50vw;
+}
+@media (max-width: 75em) {
+  .todo-list_box, .finished-list_box {
+    width: 70vw;
+  }
+}
+@media (max-width: 50em) {
+  .todo-list_box, .finished-list_box {
+    width: 80vw;
+  }
+}
+@media (max-width: 30em) {
+  .todo-list_box, .finished-list_box {
+    width: 100%;
+  }
+}
+
+.h-4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+}
+
+.h-4--b {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.h-5 {
+  font-size: 1.2rem;
+}
+
+.h-5--b {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.avg {
+  color: orange;
+}
+
+i {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 3rem;
+  color: rgb(77, 77, 77);
+}
+@media (max-width: 30em) {
+  h1 {
+    background: linear-gradient(to right top, rgba(181, 23, 255, 0.7647058824), #00ddff);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+}
+
+.finished-list_box {
+  margin-top: 4rem;
+}
+.finished-list_box h3 {
+  color: rgb(118, 118, 118);
+  margin-bottom: 1rem;
+}
+
+.todo-list li {
+  width: 100%;
+  list-style: none;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 0;
+  color: rgb(76, 76, 76);
+  overflow: hidden;
+}
+.todo-list li:hover .todo-list_li {
+  width: 94%;
+  box-shadow: 0.05rem 0 20px -2px #7b0101;
+}
+@media (max-width: 50em) {
+  .todo-list li:hover .todo-list_li {
+    width: 100%;
+    box-shadow: none;
+  }
+}
+.todo-list li .todo-list_li {
+  position: sticky;
+  width: 100%;
+  background-color: rgb(234, 234, 234);
+  padding: 1rem 1rem 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  z-index: 20;
+}
+@media (max-width: 50em) {
+  .todo-list li .todo-list_li .fa-pen {
+    padding-right: 3.5rem;
+  }
+}
+.todo-list li span, .todo-list li input {
+  position: absolute;
+  left: 4rem;
+  font-family: "Vazirmatn", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 450;
+}
+.todo-list li input {
+  width: fit-content;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  border-top: none;
+  animation: input 0.6s forwards;
+  color: rgb(76, 76, 76);
+}
+.todo-list li input:focus {
+  outline: none;
+}
+.todo-list li .delete-icon {
+  position: absolute;
+  width: 100% !important;
+  height: 100%;
+  background-color: red;
+  color: white;
+  top: 0;
+  left: 0;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  z-index: 10;
+  opacity: 90%;
+}
+.todo-list li .delete-icon i {
+  padding-right: 1.5rem;
+}
+.todo-list li .delete-icon:hover {
+  width: 47vw;
+}
+@media (max-width: 50em) {
+  .todo-list li .delete-icon {
+    background: none;
+    z-index: 21;
+    color: inherit;
+    width: 3rem !important;
+    justify-content: center;
+    left: auto;
+    right: 0;
+  }
+}
+
+.finished-list li {
+  width: 100%;
+  list-style: none;
+  margin-bottom: 1rem;
+  color: rgb(168, 168, 168);
+  background-color: rgb(234, 234, 234);
+  padding: 1rem 1rem 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  position: relative;
+}
+.finished-list li span {
+  position: absolute;
+  left: 4rem;
+  font-size: 1.2rem;
+  font-weight: 450;
+  text-decoration: line-through;
+}
+.finished-list li:hover .fa-xmark {
+  color: rgb(91, 91, 91);
+}
+
+form {
+  margin: 1rem 0 2rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 3rem;
+}
+form .form_input {
+  flex-grow: 1;
+  padding: 1.1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(209, 209, 209);
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 450;
+}
+form .form_input:focus {
+  outline: 1px solid blueviolet;
+}
+form button {
+  width: 3rem;
+  height: 3rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
